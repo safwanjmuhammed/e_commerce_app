@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GetStartedContainer extends StatelessWidget {
   final Function()? onTap;
@@ -7,10 +8,14 @@ class GetStartedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(
+        vertical: 10,
+      ),
       child: Container(
-        height: 285,
-        width: 344,
+        // height: 285.h,
+        // width: 344.w,
+        height: 260.h,
+        width: 330.w,
         decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(26))),
@@ -21,42 +26,42 @@ class GetStartedContainer extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: RichText(
                   textAlign: TextAlign.center,
-                  text: const TextSpan(children: [
+                  text: TextSpan(children: [
                     TextSpan(
                         text: 'Quick delivery at \n',
                         style: TextStyle(
                             color: Color(0XFF4F4F4F),
-                            fontSize: 31,
+                            fontSize: 31.sp,
                             fontWeight: FontWeight.w600)),
                     TextSpan(
                         text: 'Your  ',
                         style: TextStyle(
                             color: Color(0XFF4F4F4F),
-                            fontSize: 31,
+                            fontSize: 31.sp,
                             fontWeight: FontWeight.w600)),
                     TextSpan(
                         text: 'Doorstep',
                         style: TextStyle(
                             color: Color(0XFFF68989),
-                            fontSize: 31,
+                            fontSize: 31.sp,
                             fontWeight: FontWeight.w600))
                   ])),
             ),
-            const Text(
+            Text(
               'Home delivery and onlione reservation\n system for retaurants and cafe',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: Color(0XFFBDBDBD),
+                  color: const Color(0XFFBDBDBD),
                   fontWeight: FontWeight.w700,
-                  fontSize: 13),
+                  fontSize: 13.sp),
             ),
-            const SizedBox(height: 25),
+            SizedBox(height: 25.h),
             GestureDetector(
               onTap: onTap,
               child: Container(
                 alignment: Alignment.center,
-                width: 210,
-                height: 68,
+                width: 210.w,
+                height: 68.h,
                 decoration: BoxDecoration(
                     gradient: const LinearGradient(
                         colors: [Color(0XFFF68989), Color(0XFFFE5150)],
@@ -66,11 +71,11 @@ class GetStartedContainer extends StatelessWidget {
                     //   0XFFF68989,
                     // ),
                     borderRadius: BorderRadius.circular(30)),
-                child: const Text(
+                child: Text(
                   'Get Started',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 24,
+                      fontSize: 24.sp,
                       color: Colors.white),
                 ),
               ),

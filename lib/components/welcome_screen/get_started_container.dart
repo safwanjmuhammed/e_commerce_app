@@ -8,13 +8,11 @@ class GetStartedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
+      padding: EdgeInsets.symmetric(
+        vertical: 10.h,
       ),
       child: Container(
-        // height: 285.h,
-        // width: 344.w,
-        height: 260.h,
+        height: 290.h,
         width: 330.w,
         decoration: const BoxDecoration(
             color: Colors.white,
@@ -23,7 +21,7 @@ class GetStartedContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.only(top: 20.h, bottom: 10.h),
               child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(children: [
@@ -55,13 +53,15 @@ class GetStartedContainer extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontSize: 13.sp),
             ),
-            SizedBox(height: 25.h),
+            // Padding(padding: EdgeInsets.only(bottom: 50.h)),
+            // SizedBox(height: 25.h),
             GestureDetector(
               onTap: onTap,
               child: Container(
+                margin: EdgeInsets.only(top: 25.h, bottom: 10.h),
                 alignment: Alignment.center,
                 width: 210.w,
-                height: 68.h,
+                height: 70.h,
                 decoration: BoxDecoration(
                     gradient: const LinearGradient(
                         colors: [Color(0XFFF68989), Color(0XFFFE5150)],

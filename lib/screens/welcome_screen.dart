@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/components/welcome_screen/get_started_container.dart';
-import 'package:e_commerce_app/screens/home_page.dart';
+import 'package:e_commerce_app/screens/home_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,6 +14,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     final mData = MediaQuery.of(context);
+    print(mData.size.height);
     return Scaffold(
       backgroundColor: const Color(0XFFF68989),
       body: SafeArea(

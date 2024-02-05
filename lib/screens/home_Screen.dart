@@ -2,6 +2,8 @@ import 'package:e_commerce_app/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../components/Home screen/food_category.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -17,11 +19,9 @@ class HomePage extends StatelessWidget {
     final mData = MediaQuery.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        height: mData.size.height,
-        width: mData.size.width,
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 34, horizontal: 23),
+          padding: Constants.defaultPadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,15 +50,15 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               SizedBox(
-                  height: 35.h,
+                  height: 30.h,
                   width: 60.w,
                   child: Text(
                     'Hi Alex',
                     style: TextStyle(
-                        color: Color(0XFFEB5757),
+                        color: const Color(0XFFEB5757),
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w400),
                   )),
@@ -68,14 +68,15 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   'Find your Delicious Food',
                   style: TextStyle(
-                      color: Color(0XFF4F4F4F),
+                      color: const Color(0XFF4F4F4F),
                       fontSize: 21.sp,
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 25)),
+              Padding(padding: EdgeInsets.only(top: 25.h)),
               SizedBox(
-                height: 60.h,
+                height: 80.h,
+                // width: double.infinity,
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -87,19 +88,71 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30.h,
+                height: 4.h,
               ),
               Text(
                 'Popular',
                 style: TextStyle(
-                    color: Color(0XFF4F4F4F),
+                    color: const Color(0XFF4F4F4F),
                     fontWeight: FontWeight.w700,
                     fontSize: 21.sp),
               ),
               SizedBox(
                 height: 15.h,
               ),
-              pizzaContainer()
+              SizedBox(
+                  height: 300.h,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      pizzaContainer(),
+                      Padding(padding: EdgeInsets.only(right: 10.w)),
+                      pizzaContainer()
+                    ],
+                  ))
+
+              // SizedBox(
+              //   height: double.infinity,
+              //   width: double.infinity,
+              //   child: ListView.builder(
+              //       itemBuilder: (context, index) {
+              //         return pizzaContainer();
+              //       },
+              //       scrollDirection: Axis.horizontal),
+              // ),
+              ,
+              Expanded(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 78.h,
+                      width: 78.w,
+                      decoration: BoxDecoration(
+                          // shape: BoxShape.circle,
+                          // color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color.fromARGB(255, 165, 160, 160),
+                                blurRadius: 20,
+                                spreadRadius: 0,
+                                blurStyle: BlurStyle.normal)
+                          ],
+                          gradient: LinearGradient(
+                              colors: [Constants.pink1, Constants.pink2],
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight)),
+                      child: Text('Menu',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 19.sp,
+                              color: Colors.white)),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -108,55 +161,19 @@ class HomePage extends StatelessWidget {
   }
 }
 
-Widget foodCat(String imagePath, String foodName) {
-  return Padding(
-    padding: const EdgeInsets.only(right: 25),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          // height: 50.h,
-          // width: 50.w,
-          decoration: const BoxDecoration(
-              // color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(5)),
-              boxShadow: [
-                BoxShadow(
-                    color: Color.fromARGB(255, 165, 160, 160),
-                    blurRadius: 20,
-                    spreadRadius: 0,
-                    blurStyle: BlurStyle.normal)
-              ]),
-          child: Image.asset(
-            imagePath,
-            height: 45.h,
-            width: 45.w,
-          ),
-        ),
-        Text(
-          foodName,
-          style: TextStyle(
-              color: const Color(0XFF4F4F4F),
-              fontSize: 10.sp,
-              fontWeight: FontWeight.w500),
-        )
-      ],
-    ),
-  );
-}
-
 Widget pizzaContainer() {
   return Container(
-      // alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
       height: 272.h,
-      width: 162.w,
+      width: 172.w,
       decoration: BoxDecoration(
-          color: Color(0XFFFFFFFF),
+          color: const Color(0XFFFFFFFF),
           borderRadius: BorderRadius.circular(15),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(color: Color.fromARGB(255, 165, 160, 160), blurRadius: 3)
           ]),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
             'Melting Cheese',
@@ -166,7 +183,7 @@ Widget pizzaContainer() {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 7),
+                padding: EdgeInsets.only(right: 7.w),
                 child: Image.asset('assets/images/fire.png'),
               ),
               Text(
@@ -180,8 +197,8 @@ Widget pizzaContainer() {
           ),
           Image.asset(
             'assets/images/Pizza_1.png',
-            height: 142,
-            width: 145,
+            height: 142.h,
+            width: 145.w,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -196,6 +213,25 @@ Widget pizzaContainer() {
                       fontWeight: FontWeight.w500,
                       color: const Color(0XFF4F4F4F)))
             ],
+          ),
+          Container(
+            height: 20.h,
+            width: 16.w,
+            decoration: BoxDecoration(
+                color: const Color(0XFFFFFFFF),
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(2),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Color.fromARGB(255, 165, 160, 160), blurRadius: 3)
+                ],
+                gradient: LinearGradient(
+                    colors: [Constants.pink1, Constants.pink2],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight)),
+            child: Image.asset(
+              'assets/images/Plus.png',
+            ),
           )
         ],
       ));

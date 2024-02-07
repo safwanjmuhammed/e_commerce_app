@@ -5,5 +5,5 @@ class Constants {
   static Color pink1 = const Color(0XFFFE5150);
   static Color pink2 = const Color(0XFFF68989);
   static EdgeInsetsGeometry defaultPadding =
-      EdgeInsetsDirectional.symmetric(vertical: 15.h, horizontal: 23.w);
+      EdgeInsetsDirectional.symmetric(vertical: 15.h, horizontal: 20.w);
 }

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return ScreenUtilInit(
-      designSize: ScreenUtil.defaultSize,
+      designSize: const Size(360, 690),
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,

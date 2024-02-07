@@ -20,119 +20,121 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: Constants.defaultPadding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset('assets/images/Menu.png'),
-                  Container(
-                      height: 47.h,
-                      width: 47.w,
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Color.fromARGB(255, 165, 160, 160),
-                              blurRadius: 14,
-                              spreadRadius: 0,
-                              blurStyle: BlurStyle.normal)
-                        ],
-                        gradient: LinearGradient(
-                            colors: [Constants.pink1, Constants.pink2],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topLeft),
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Image.asset('assets/images/Search.png'))
-                ],
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              SizedBox(
-                  height: 30.h,
-                  width: 60.w,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: Constants.defaultPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset('assets/images/Menu.png'),
+                    Container(
+                        height: 47.h,
+                        width: 55.w,
+                        decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Color.fromARGB(255, 165, 160, 160),
+                                  blurRadius: 14,
+                                  spreadRadius: 0,
+                                  blurStyle: BlurStyle.normal)
+                            ],
+                            gradient: LinearGradient(
+                                colors: [Constants.pink1, Constants.pink2],
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topLeft),
+                            shape: BoxShape.circle),
+                        child: Image.asset('assets/images/Search.png'))
+                  ],
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                SizedBox(
+                    height: 30.h,
+                    width: 60.w,
+                    child: Text(
+                      'Hi Alex',
+                      style: TextStyle(
+                          color: const Color(0XFFEB5757),
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w400),
+                    )),
+                SizedBox(
+                  height: 35.h,
+                  width: 249.w,
                   child: Text(
-                    'Hi Alex',
+                    'Find your Delicious Food',
                     style: TextStyle(
-                        color: const Color(0XFFEB5757),
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w400),
-                  )),
-              SizedBox(
-                height: 35.h,
-                width: 249.w,
-                child: Text(
-                  'Find your Delicious Food',
+                        color: const Color(0XFF4F4F4F),
+                        fontSize: 21.sp,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(top: 20.h)),
+                SizedBox(
+                  height: 80.h,
+                  // width: double.infinity,
+                  child: ListView.builder(
+                    // shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: foods.length,
+                    itemBuilder: (context, index) {
+                      return foodCat(foods[index]['image path'],
+                          foods[index]['food name']);
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 4.h,
+                ),
+                Text(
+                  'Popular',
                   style: TextStyle(
                       color: const Color(0XFF4F4F4F),
-                      fontSize: 21.sp,
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w700,
+                      fontSize: 21.sp),
                 ),
-              ),
-              Padding(padding: EdgeInsets.only(top: 25.h)),
-              SizedBox(
-                height: 80.h,
-                // width: double.infinity,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: foods.length,
-                  itemBuilder: (context, index) {
-                    return foodCat(
-                        foods[index]['image path'], foods[index]['food name']);
-                  },
+                SizedBox(
+                  height: 15.h,
                 ),
-              ),
-              SizedBox(
-                height: 4.h,
-              ),
-              Text(
-                'Popular',
-                style: TextStyle(
-                    color: const Color(0XFF4F4F4F),
-                    fontWeight: FontWeight.w700,
-                    fontSize: 21.sp),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              SizedBox(
-                  height: 300.h,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      pizzaContainer(),
-                      Padding(padding: EdgeInsets.only(right: 10.w)),
-                      pizzaContainer()
-                    ],
-                  ))
+                SizedBox(
+                    height: 280.h,
+                    // width: double.infinity,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        pizzaContainer(),
+                        Padding(padding: EdgeInsets.only(right: 10.w)),
+                        pizzaContainer()
+                      ],
+                    ))
 
-              // SizedBox(
-              //   height: double.infinity,
-              //   width: double.infinity,
-              //   child: ListView.builder(
-              //       itemBuilder: (context, index) {
-              //         return pizzaContainer();
-              //       },
-              //       scrollDirection: Axis.horizontal),
-              // ),
-              ,
-              Expanded(
-                child: Center(
+                // SizedBox(
+                //   height: double.infinity,
+                //   width: double.infinity,
+                //   child: ListView.builder(
+                //       itemBuilder: (context, index) {
+                //         return pizzaContainer();
+                //       },
+                //       scrollDirection: Axis.horizontal),
+                // ),
+                ,
+                Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 10.h),
                     child: Container(
+                      padding: EdgeInsets.all(10),
                       alignment: Alignment.center,
-                      height: 78.h,
-                      width: 78.w,
+                      height: 70.h,
+                      width: 70.w,
                       decoration: BoxDecoration(
-                          // shape: BoxShape.circle,
+                          //shape: BoxShape.circle,
                           // color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          shape: BoxShape.circle,
+                          // borderRadius: BorderRadius.all(Radius.circular(80)),
                           boxShadow: [
                             BoxShadow(
                                 color: Color.fromARGB(255, 165, 160, 160),
@@ -147,13 +149,13 @@ class HomePage extends StatelessWidget {
                       child: Text('Menu',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: 19.sp,
+                              fontSize: 17.sp,
                               color: Colors.white)),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -163,7 +165,8 @@ class HomePage extends StatelessWidget {
 
 Widget pizzaContainer() {
   return Container(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+      margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 3.w),
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
       height: 272.h,
       width: 172.w,
       decoration: BoxDecoration(
@@ -216,7 +219,7 @@ Widget pizzaContainer() {
           ),
           Container(
             height: 20.h,
-            width: 16.w,
+            width: 20.w,
             decoration: BoxDecoration(
                 color: const Color(0XFFFFFFFF),
                 shape: BoxShape.rectangle,
